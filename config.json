@@ -1,14 +1,8 @@
 {
   "outdir": "./output",
-  "clientID": "PASTE_YOUR_UNIQUE_UUID_HERE",
+  "clientID": "247caa67-8203-4d28-a267-c7d1230359cd",
   "mapping": {
-    "us": "45.50.96.71",
-    "uk": "51.89.255.67",
-    "ca": "23.227.38.65",
-    "de": "91.107.201.140",
-    "fr": "51.210.0.1",
-    "es": "82.98.134.10",
-    "it": "79.137.44.85"
+    "br": "200.160.2.3"
   },
   "all": false,
   "group": "genre",
