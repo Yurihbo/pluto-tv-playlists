@@ -1,91 +1,37 @@
-# 🌎 PLUTO TV PLAYLISTS
+# Pluto TV Brasil — M3U automática
 
-![Auto Update](https://img.shields.io/badge/Token-Auto%20Updated-brightgreen)
+Este fork está configurado para gerar a playlist da **Pluto TV Brasil** usando o scraper deste projeto.
 
----
+## Como gerar a playlist
 
-# Pluto TV Playlists
+1. Abra a aba **Actions** deste repositório.
+2. Se o GitHub mostrar a opção, clique em **I understand my workflows, go ahead and enable them** para habilitar os workflows do fork.
+3. Abra **Auto Pluto Update**.
+4. Clique em **Run workflow** e confirme.
+5. Aguarde a execução terminar com status verde.
+6. Confira o arquivo gerado em `output/plutotv_br.m3u8`.
 
-This repository provides an automatically updated Pluto TV M3U playlist with EPG.  
-**Important:** Each user must use their own unique `client_id` (UUID) to avoid stream conflicts on Pluto TV servers.
+## URL RAW para o Vita IPTV
 
----
+Depois que o primeiro workflow terminar e criar o arquivo, use:
 
-## Step 1: Fork This Repository
-
-1. Click the **Fork** button on the top right of this repo.  
-2. You now have your own copy of the repo in your GitHub account.
-
----
-
-## Step 2: Generate Your Client ID (UUID)
-
-You need a unique client ID for Pluto TV:
-
-- Go to [https://www.uuidgenerator.net/](https://www.uuidgenerator.net/) and generate a new UUID.  
-- Example: `9a1cce51-2d2f-4b6c-9f8e-1e2d0a3b4c5d`
-- Copy the UUID.
-
----
-
-## Step 3: Edit `config.json`
-
-Open the `config.json` file in your fork and replace the default client_id with your UUID:
-
-```json
-{
-  "client_id": "PASTE_YOUR_UNIQUE_UUID_HERE"
-}
-```
-
-### Step 4: Run GitHub Actions
-
-After editing `config.json`:
-
-1. Go to the **Actions** tab in your fork.
-2. Select **All workflows** the click **Auto Pluto Update**.
-3. Click **Run workflow**.
-4. Wait for the workflow to finish. The playlist will now be updated with your unique client ID.
-
-### Step 5: Access Your M3U8 Playlist
-
-After running the workflow:
-
-1. Go to the `output/` folder in your forked repository.  
-2. You will find your **personalized M3U8 playlist** (`plutotv_us.m3u8`) that uses your own client ID.  
-3. Open the .m3u8 file → tap the three dots (mobile) → select View → copy the URL.
-On desktop, just click Raw → copy the URL.
-### Example RAW URL format:
 ```text
-https://raw.githubusercontent.com/NasiLemakk/Pluto-TV-Playlists/main/plutotv_us.m3u
-```
-Add the URL above as a remote playlist in your IPTV player (TiviMate, IPTV Smarters, OTT Navigator, etc).
-
-
-> **Note:** Each user will have their own playlist file generated automatically with their unique client ID and JWT token.
----
-
-### **⚡ Automatic Token Update**
-
-This repository uses GitHub Actions to automatically refresh the Pluto TV session token and regenerate the M3U playlist.
-
-No manual intervention required.
-
----
-
-## 📺 EPG Links
-```text
-https://raw.githubusercontent.com/matthuisman/i.mjh.nz/refs/heads/master/PlutoTV/all.xml
+https://raw.githubusercontent.com/Yurihbo/pluto-tv-playlists/main/output/plutotv_br.m3u8
 ```
 
-## Credits
+## Atualização automática
 
-This project is based on pluto_tv_scraper by 4v3ngR.
+O GitHub Actions está programado para executar de hora em hora e atualizar o arquivo quando houver mudanças. Os tokens de reprodução podem expirar; por isso, a atualização periódica ajuda a evitar links antigos, mas não garante reprodução permanente nem elimina eventuais restrições regionais ou mudanças da Pluto TV.
 
-Original project:  
-https://github.com/4v3ngR/pluto_tv_scraper
+## Região
 
-Some modifications and customization were made for this repository.
+A configuração solicita a região brasileira usando um endereço IP público geolocalizado no Brasil. A geolocalização usada pelo serviço pode variar conforme a base de dados da Pluto TV.
 
-EPG data provided by [Matt Huisman](https://github.com/matthuisman)  
-Source: https://github.com/matthuisman/i.mjh.nz
+## Observações
+
+- Este repositório gera uma playlist M3U8 estática no GitHub; não hospeda um servidor de atualização por requisição.
+- A playlist só estará pronta depois da primeira execução bem-sucedida do workflow.
+- O Vita IPTV precisa ter acesso à internet e suportar os formatos de stream retornados pela Pluto TV.
+- A disponibilidade de canais depende do catálogo gratuito e da região da Pluto TV.
+
+Baseado no projeto original de NasiLemakk e no scraper de 4v3ngR. Consulte as licenças e créditos dos projetos originais.
